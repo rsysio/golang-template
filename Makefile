@@ -13,7 +13,7 @@ build:
 	go build ${LDFLAGS} -o ${BINARY} main.go
 
 build-shared:
-	go build ${LDFLAGS} -buildmode=c-shared -o ${BINARY} shared.go
+	go build ${LDFLAGS} -buildmode=c-shared -o ${SHARED_BIN} shared.go
 
 clean:
 	go clean
