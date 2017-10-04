@@ -1,5 +1,6 @@
 .DEFAULT: build
 
+GO_VERSION  ?= 1.9
 BINARY		?= run
 SHARED_BIN	?= shared.so
 
@@ -14,7 +15,7 @@ dep-init:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		make cont-dep-init
 
 dep:
@@ -22,7 +23,7 @@ dep:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		make cont-dep-ensure
 
 build:
@@ -30,7 +31,7 @@ build:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		make cont-build
 
 build-shared:
@@ -38,7 +39,7 @@ build-shared:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		make cont-build-shared
 
 clean:
@@ -46,7 +47,7 @@ clean:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		go clean
 
 run:
@@ -54,7 +55,7 @@ run:
 		--rm \
 		-v ${PWD}:/go/src/app \
 		--workdir /go/src/app \
-		golang:1.9 \
+		golang:$(GO_VERSION) \
 		go run main.go
 
 ###############################################
