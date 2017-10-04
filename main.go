@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "github.com/aws/aws-sdk-go/aws"
+)
 
 var (
 	Version string
@@ -18,5 +21,7 @@ func PrintVersion() {
 }
 
 func main() {
+    PrintVersion()
 	fmt.Println("golang template")
+    fmt.Println(aws.SDKVersion)
 }
